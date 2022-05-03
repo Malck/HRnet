@@ -1,23 +1,36 @@
+import "../Home/home.css";
+import { Link } from "react-router-dom";
+import Form from "../../Components/Form/Form";
+
 export default function Home() {
-    return(
 
-    <div>
+  return (
 
-        <div class="title">
-            <h1>HRnet</h1>
-        </div>
-        <div class="container">
-        <a href="employee-list.html">View Current Employees</a>
+    <div className="home-container">
+
+      <div className="title">
+        <h1>HRnet</h1>
+      </div>
+
+      <div className="container">
+        <Link to="/employee" className="back-home-employee">
+          {" "}
+          <button type="button">View Current Employees</button>{" "}
+        </Link>
+
         <h2>Create Employee</h2>
 
-        <div className="formulaire">
-            formulaire
-        </div>
+        <Form />
+      </div>
 
-        <button onclick="saveEmployee()">Save</button>
-        </div>
-        <div id="confirmation" class="modal">Employee Created!</div>
+      <div id="confirmation" className="modal">
+        Employee Created!
+      </div>
 
     </div>
-    )
+    
+  );
 }
+
+// <button onClick={saveEmployee}>Save</button>
+//<a href="employee-list.html">View Current Employees</a>
