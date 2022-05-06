@@ -6,7 +6,7 @@ const userSlice = createSlice({
        
     reducers:{
         
-        addEmployee:(state,action) => {  //dans profile.jsx met a jour le prenom et nom 
+        addEmployee:(state,action) => {  //Ajoute un profil d'employee dans le store 
             state.push(action.payload)     
         }
     }
