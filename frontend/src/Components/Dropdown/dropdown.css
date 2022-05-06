@@ -1,0 +1,8 @@
+.dropdown{
+    display: flex;
+    flex-direction: column;
+}
+.input_dropdown{
+    padding: 2px;
+    border: solid 2px black;
+}
