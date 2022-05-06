@@ -5,8 +5,8 @@
     padding: 1rem;
     margin: 20px auto;
     max-width: 1440px;  
-    background-color: #57831e; 
-    border: 2px solid #57831e;
+    background-color: #21621E; 
+    border: 2px solid #21621E;
 }
 .main-nav img {
     width: 150px;
@@ -17,6 +17,17 @@
     font-size: 22px;
 }
 .header-links .back-employee{
-    padding-right: 15px;
-
+    padding: 5px 15px;
+    border: inset 2px black;
+    margin-right: 10px;
+}
+.header-links .back-home{
+    padding: 5px 15px;
+    border: groove 2px black;
+    margin-left: 10px;
+}
+.header-links .back-employee:hover,
+.header-links .back-home:hover{
+    cursor : pointer;
+    background-color: #93ad18
 }
