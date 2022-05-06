@@ -2,9 +2,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 0rem 1rem;
     margin: 0 auto;
     max-width: 1440px;
     flex-direction: column;
-    border: 2px solid #57831e;
+    border: 2px solid #21621E;
 }

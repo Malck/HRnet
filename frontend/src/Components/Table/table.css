@@ -1,0 +1,43 @@
+.employee_table{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 1rem;
+  }
+  
+  .employee_table table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th,
+  td {
+    border: 1px solid #ffffff;
+    text-align: left;
+    padding: 8px;
+    font-size: 17px;
+    font-weight: 500;
+  }
+  
+  th {
+    background-color: rgb(33 98 30);;
+    color: #ffffff;
+  }
+  
+  td {
+    background-color: rgb(172, 201, 28);
+  }
+  
+  .employee_table form {
+    display: flex;
+    gap: 5px;
+  }
+  
+  form td:last-child {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  form * {
+    font-size: 22px;
+  }
