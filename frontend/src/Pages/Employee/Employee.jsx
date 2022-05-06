@@ -1,21 +1,22 @@
 import "../Employee/employee.css";
 import { Link } from "react-router-dom";
-//import {useSelector} from "../"
+
+import Table from "../../Components/Table/Table"
+//import { useSelector } from "react-redux";
 
 export default function Employee() {
 
   
-  //const dataEmployee = useSelector((state) => state.Userstate);
+  //const dataEmployee = useSelector((state) => state.UserState);     {/* j'essais de recup mon state mais c'est un tableau et ça ne fonctionne pas */}
+  //console.log(dataEmployee);                       {/*undefined */}
 
   return (
 
-    <div className="employee">
+    <div className="employee-container">
 
       <h1 className="sr-only">Current Employees</h1>
 
-      <div>
-        employees.map
-      </div>
+      <Table/>
 
       <Link to="/" className="back-home">
 
