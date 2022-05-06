@@ -1,3 +1,31 @@
+form{
+    margin-bottom: 20px;
+}
+.container {
+    /*background-color: #596e07;*/
+    padding: 20px 40px;
+    color: #060606;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.home-container h1 {
+    /*padding: 0px 145px;*/
+    padding: 5px 220px;
+    background-color: #21621E;
+    margin: 0 0 20px;
+    color: #fff;
+    border-radius: 0 0 10px 10px;
+}
+a.back-home-employee {
+    display: flex;
+    justify-content: center;
+}
+.container h2 {
+    margin: 20px 0 10px;
+    border: solid #21621e 1px;
+    padding: 5px 5px 10px 10px;
+}
 .input-wrapper {
     display: flex;
     flex-direction: column;
@@ -9,4 +37,24 @@
 fieldset.address {
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
+}
+label {
+    padding: 10px 0 7px;
+}
+.container button{
+    padding: 7px;
+    background-color: #21621E;
+    color: whitesmoke;
+    border-radius: 14px;
+    border: 1px dashed rgb(165, 190, 50);
+    font-size: 16px;
+    font-weight: 600;
+}
+.container button:hover{
+   cursor: pointer;
+   background-color: #93ad18
+}
+.container input{
+    background-color: #ffffff;
 }

@@ -1,8 +1,10 @@
 import "../Form/form.css";
 import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
-//import states from "../../Assets/states.json";
-//import departments from "../../Assets/departments.json";
+import Dropdown from "../Dropdown/Dropdown";
+import Modal from "../Modal/Modal";
+import states from "../../Assets/states.json";
+import departments from "../../Assets/departments.json";
 import { addEmployee } from "../../Store/Slice";
 
 export default function Form() {
@@ -11,14 +13,16 @@ export default function Form() {
   const inputLast = useRef(null);
   const inputBirth = useRef(null);
   const inputStart = useRef(null);
+  const inputStreet = useRef(null);
+  const inputCity = useRef(null);
+  const inputZip = useRef(null);
 
-  /*
-    const [street, setStreet] = useState();
-    const [state, setState] = useState();
-    const [city, setCity] = useState();
-    const [zip, setZip] = useState();
-    const [department, setDepartment] = useState();
-    */
+  const [state, setState] = useState();
+  const [department, setDepartment] = useState();
+
+  const [openModal, setOpenModal] = useState(false);
+  const onOpenModal = () => setOpenModal(true);
+  const onCloseModal = () => setOpenModal(false);
 
   const dispatch = useDispatch();
 
@@ -26,16 +30,22 @@ export default function Form() {
     e.preventDefault();
 
     const employeeData = {
-      firstName: inputFirst.current.value,
-      lastName: inputLast.current.value,
-      birthDay: inputBirth.current.value,
-      startDate: inputStart.current.value,
+      firstName : inputFirst.current.value,
+      lastName : inputLast.current.value,
+      birthDay : inputBirth.current.value,
+      startDate : inputStart.current.value,
+      street : inputStreet.current.value,
+      city : inputCity.current.value,
+      zip : inputZip.current.value,
+      state : state,
+      department : department,
+      id: Date.now(),
     };
 
     console.log("Apres le submit employeeData = ", employeeData);
     dispatch(addEmployee(employeeData));
     e.target.reset();
-    //onOpenModal();
+    onOpenModal();
   };
 
   return (
@@ -46,25 +56,21 @@ export default function Form() {
 
         <div className="input-wrapper">
           <label htmlFor="firstName">First Name</label>
-          {/*<input onChange={(e) => setFirstName(e.target.value)}  type="text"  id="firstName" /> */}
           <input ref={inputFirst} type="text" id="firstName" required />
         </div>
 
         <div className="input-wrapper">
           <label htmlFor="lastName">Last Name</label>
-          {/*<input onChange={(e) => setLastName(e.target.value)}  type="text" name="lastName" id="lastName" /> */}
           <input ref={inputLast} type="text" id="lastName" required />
         </div>
 
         <div className="input-wrapper">
-          <label htmlFor="birth">Date of birth</label>
-          {/*<input onChange={(e) => setBirthDay(e.target.value)}  type="date" id="birth" />*/}
+          <label htmlFor="birth">Date of Birth</label>
           <input ref={inputBirth} type="date" id="birth" required />
         </div>
 
         <div className="input-wrapper">
           <label htmlFor="start">Start Date</label>
-          {/*<input onChange={(e) => setStartDate(e.target.value)}  type="date" id="start" />*/}
           <input ref={inputStart} type="date" id="start" required />
         </div>
 
@@ -72,27 +78,38 @@ export default function Form() {
           <legend>Address</legend>
 
           <label htmlFor="street">Street</label>
-          <input id="street" type="text" />
+          <input ref={inputStreet} type="text" id="street" required />
 
           <label htmlFor="city">City</label>
-          <input id="city" type="text" />
+          <input ref={inputCity} type="text" id="city" required />
 
-          <label htmlFor="state">State</label>
-          <select name="state" id="state"></select>
+          <Dropdown name={"State"} datas={states} onChange={(e) => setState(e.target.value)} required /> 
+          {/*le state reste en etat undefined si on clique pas sur un des etats dans le menu déroulant */}
 
           <label htmlFor="zip-code">Zip Code</label>
-          <input id="zip-code" type="number" />
+          <input ref={inputZip} type="number" id="zip-code" required />
+
         </fieldset>
 
+        
+         <Dropdown name={"Department"} datas={departments} onChange={(e) => setDepartment(e.target.value)} placeholder="select" required/> 
+         {/*Dois je mettre dans mon store un departement et state(etats) par deffaut et la valeur changera si la personne clique sur le selct */}
+
+        <br></br>
+        
         <button type="submit">Save</button>
 
+        {openModal && (
+        <Modal message={"Employee created"} onCloseModal={onCloseModal} />
+      )}
+
       </form>
-      
+
     </div>
   );
 }
 
-//MEMO
+//MEMO {/* */}
 
 //dans les input :
 //value="{lastName}" value="{birthDay}" value="{startDate}"
