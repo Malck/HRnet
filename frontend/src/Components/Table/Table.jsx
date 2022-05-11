@@ -1,39 +1,62 @@
-import "../Table/table.css"
+import "../Table/table.css";
 import { useSelector } from "react-redux";
-import { useState } from "react"
-import TableHeader from "../TableHeader/TableHeader"
-import TableFooter from "../TableFooter/TableFooter"
+import { useState } from "react";
+import TableHeader from "../TableHeader/TableHeader";
+import TableFooter from "../TableFooter/TableFooter";
 
 export default function Table() {
+  const dataEmployee = useSelector((state) => state.UserState);
 
-  const dataEmployee = useSelector((state) => state.UserState);     {/* j'essais de recup mon state mais c'est un tableau et ça ne fonctionne pas */}
-  console.log(dataEmployee); 
+  const [data, setData] = useState(dataEmployee); 
 
-  const [contacts , setContacts] = useState(dataEmployee)
-  
-    return (
-  
-      <div className="employee_table">
+  //methode de state pour rajouter une fleche de direction haut : bas selon l'etat du tableau ( croissant decroissant )
+  const [dataSorted, setDataSorted] = useState(false);
 
-        <TableHeader/>
+  //methode de sorting
+  const [order, setOrder] = useState("ASC");
 
-        <table>
-          <thead>
-            <tr>
-              <th>FirstName</th>
-              <th>LastName</th>
-              <th>Start</th>
-              <th>Department</th>
-              <th>Date of Birth</th>
-              <th>Street</th>
-              <th>City</th>
-              <th>State</th>
-              <th>Zip Code</th>
-            </tr>
-          </thead>
-          <tbody>
-            {contacts.map((contact) => (
-            <tr>
+  const sorting = (col) => {
+    if (order === "ASC") {
+      const sorted = [...data].sort((a, b) =>
+        a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
+      );
+      setData(sorted);
+      setOrder("DESC");
+      setDataSorted(true);
+    }
+    if (order === "DESC") {
+      const sorted = [...data].sort((a, b) =>
+        a[col].toLowerCase() < b[col].toLowerCase() ? 1 : -1
+      );
+      setData(sorted);
+      setOrder("ASC");
+      setDataSorted(false);
+    }
+  };
+
+  return (
+    <div className="employee_table">
+      <TableHeader setData={setData} dataEmployee={dataEmployee} />
+
+      <table>
+        <thead>
+          <tr>
+            <th onClick={() => sorting("firstName")}>
+              FirstName <span> {dataSorted === true ? "▲" : "▼"}</span>
+            </th>
+            <th onClick={() => sorting("lastName")}>LastName <span> {dataSorted === true ? "▲" : "▼"}</span> </th>
+            <th onClick={() => sorting("startDate")}>Start <span> {dataSorted === true ? "▲" : "▼"}</span> </th>
+            <th onClick={() => sorting("department")}>Department</th>
+            <th onClick={() => sorting("birthDay")}>Date of Birth</th>
+            <th onClick={() => sorting("street")}>Street</th>
+            <th onClick={() => sorting("city")}>City</th>
+            <th onClick={() => sorting("state")}>State</th>
+            <th onClick={() => sorting("zip")}>Zip Code</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((contact) => (
+            <tr key={contact.id}>
               <td>{contact.firstName}</td>
               <td>{contact.lastName}</td>
               <td>{contact.startDate}</td>
@@ -44,14 +67,12 @@ export default function Table() {
               <td>{contact.state}</td>
               <td>{contact.zip}</td>
             </tr>
-            ))}
-            
-          </tbody>
-        </table>
+          ))}
+        </tbody>
+      </table>
 
-        <TableFooter/>
-  
-      </div>
-  
-      )
-  }
+      <TableFooter />
+    </div>
+  );
+}
+
