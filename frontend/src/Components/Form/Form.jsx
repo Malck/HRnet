@@ -8,7 +8,7 @@ import departments from "../../Assets/departments.json";
 import { addEmployee } from "../../Store/Slice";
 
 export default function Form() {
-
+  //Les differents input saisis
   const inputFirst = useRef(null);
   const inputLast = useRef(null);
   const inputBirth = useRef(null);
@@ -17,9 +17,15 @@ export default function Form() {
   const inputCity = useRef(null);
   const inputZip = useRef(null);
 
-  const [state, setState] = useState();
-  const [department, setDepartment] = useState();
+  //Pour les deux list dropdown
+  //cette ecriture permet de recuperer le premier element du tableau 
+  const [firstState] = states;
+  const [firstDepartment] = departments;
 
+  const [state, setState] = useState(firstState.value);
+  const [department, setDepartment] = useState(firstDepartment.name);
+
+  //le statut de la modal qui apparait
   const [openModal, setOpenModal] = useState(false);
   const onOpenModal = () => setOpenModal(true);
   const onCloseModal = () => setOpenModal(false);
@@ -30,18 +36,18 @@ export default function Form() {
     e.preventDefault();
 
     const employeeData = {
-      firstName : inputFirst.current.value,
-      lastName : inputLast.current.value,
-      birthDay : inputBirth.current.value,
-      startDate : inputStart.current.value,
-      street : inputStreet.current.value,
-      city : inputCity.current.value,
-      zip : inputZip.current.value,
-      state : state,
-      department : department,
+      firstName: inputFirst.current.value,
+      lastName: inputLast.current.value,
+      birthDay: inputBirth.current.value,
+      startDate: inputStart.current.value,
+      street: inputStreet.current.value,
+      city: inputCity.current.value,
+      zip: inputZip.current.value,
+      state: state,
+      department: department,
       id: Date.now(),
     };
-
+    
     console.log("Apres le submit employeeData = ", employeeData);
     dispatch(addEmployee(employeeData));
     e.target.reset();
@@ -49,11 +55,8 @@ export default function Form() {
   };
 
   return (
-
     <div className="formulaire">
-
       <form action="" onSubmit={(e) => handleSubmit(e)}>
-
         <div className="input-wrapper">
           <label htmlFor="firstName">First Name</label>
           <input ref={inputFirst} type="text" id="firstName" required />
@@ -83,28 +86,30 @@ export default function Form() {
           <label htmlFor="city">City</label>
           <input ref={inputCity} type="text" id="city" required />
 
-          <Dropdown name={"State"} datas={states} onChange={(e) => setState(e.target.value)} required /> 
-          {/*le state reste en etat undefined si on clique pas sur un des etats dans le menu déroulant */}
+          <Dropdown
+            name={"State"}
+            datas={states}
+            onChange={(e) => setState(e.target.value)}
+          />
 
           <label htmlFor="zip-code">Zip Code</label>
           <input ref={inputZip} type="number" id="zip-code" required />
-
         </fieldset>
 
-        
-         <Dropdown name={"Department"} datas={departments} onChange={(e) => setDepartment(e.target.value)} placeholder="select" required/> 
-         {/*Dois je mettre dans mon store un departement et state(etats) par deffaut et la valeur changera si la personne clique sur le selct */}
+        <Dropdown
+          name={"Department"}
+          datas={departments}
+          onChange={(e) => setDepartment(e.target.value)}
+        />
 
         <br></br>
-        
+
         <button type="submit">Save</button>
 
         {openModal && (
-        <Modal message={"Employee created"} onCloseModal={onCloseModal} />
-      )}
-
+          <Modal message={"Employee created"} onCloseModal={onCloseModal} />
+        )}
       </form>
-
     </div>
   );
 }
