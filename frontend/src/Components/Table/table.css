@@ -22,6 +22,7 @@
   th {
     background-color: rgb(33 98 30);;
     color: #ffffff;
+    cursor: pointer;
   }
   
   td {
@@ -41,3 +42,8 @@
   form * {
     font-size: 22px;
   }
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+}
