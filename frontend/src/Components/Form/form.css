@@ -22,9 +22,11 @@ a.back-home-employee {
     justify-content: center;
 }
 .container h2 {
-    margin: 20px 0 10px;
+    margin: 25px 0 10px;
     border: solid #21621e 1px;
     padding: 5px 5px 10px 10px;
+    display: flex;
+    justify-content: center;
 }
 .input-wrapper {
     display: flex;

@@ -18,12 +18,12 @@ export default function Form() {
   const inputZip = useRef(null);
 
   //Pour les deux list dropdown
-  //cette ecriture permet de recuperer le premier element du tableau 
+  //cette ecriture permet de recuperer le premier element du tableau (le premier states de la liste qui sera sous forme de dropdown)
   const [firstState] = states;
   const [firstDepartment] = departments;
 
   const [state, setState] = useState(firstState.value);
-  const [department, setDepartment] = useState(firstDepartment.name);
+  const [department, setDepartment] = useState(firstDepartment.value);
 
   //le statut de la modal qui apparait
   const [openModal, setOpenModal] = useState(false);
@@ -114,23 +114,3 @@ export default function Form() {
   );
 }
 
-//MEMO {/* */}
-
-//dans les input :
-//value="{lastName}" value="{birthDay}" value="{startDate}"
-
-//Pour les states et les departments utiliser un dropdown a configuerer ailleurs
-
-//<Dropdown name={"State"} datas={states} onChange={(e) => setState(e.target.value)} />
-
-//Supprimer :
-
-//Les useStates ont été remplacé par des useRef
-
-/*
-const [firstName, setFirstName] = useState();
-const [lastName, setLastName] = useState();
-const [birthDay, setBirthDay] = useState();
-const [startDate, setStartDate] = useState();
-
-*/
