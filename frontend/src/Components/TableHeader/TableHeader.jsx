@@ -1,5 +1,13 @@
+import Dropdown from "../Dropdown/Dropdown";
+import {useDispatch} from "react-redux";
+import {changeLength} from "../../Store/TableSlice"
+
 function TableHeader({ setData, dataEmployee }) {
-  
+
+  const dispatch = useDispatch()
+
+
+  //Methode de filtrage des employés affichés dans le tableau
   const search = (searchTerm) => {
     const dataFiltered = dataEmployee.filter((val) => {
 
@@ -21,19 +29,18 @@ function TableHeader({ setData, dataEmployee }) {
         return val;
       }
 
-      /*else if (dataFiltered.length === 0){
-        return "Aucun match found"
-
-      }*/
-
     });
     setData(dataFiltered);
   };
 
   return (
-    <div className="table-header">
-      <div className="entries">show entries</div>
 
+    <div className="table-header">
+
+      <Dropdown name={"Show"}  onChange={(e) => dispatch(changeLength(parseInt(e.target.value, 10)))} 
+        datas={[{ name: 10, value: 10 },{ name: 25, value: 25 },{ name: 50, value: 50 },{ name: 100, value: 100 }]}>   
+      </Dropdown>
+      
       <input
         type="text"
         placeholder="Search..."
@@ -42,6 +49,7 @@ function TableHeader({ setData, dataEmployee }) {
           search(e.target.value);
         }}
       ></input>
+      
     </div>
   );
 }

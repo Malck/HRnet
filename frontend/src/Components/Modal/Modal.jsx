@@ -7,7 +7,7 @@ function Modal({ message, onCloseModal }) {
         <div className="modal_body">
           <p className="modal_message">{message}</p>
           <p className="modal_icon" onClick={onCloseModal}>
-            &times;
+            &times; 🗙
           </p>
         </div>
       </>

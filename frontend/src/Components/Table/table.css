@@ -24,9 +24,12 @@
     color: #ffffff;
     cursor: pointer;
   }
+  th:hover {
+    background-color: rgba(54, 146, 49, 0.986);
+  }
   
   td {
-    background-color: rgb(172, 201, 28);
+    background-color: #e9f5eb;
   }
   
   .employee_table form {
@@ -40,10 +43,67 @@
   }
   
   form * {
-    font-size: 22px;
+    font-size: 20px;
   }
 
+
+/**************************** TableHeader *****/
 .table-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+input.form-control {
+  font-size: 15px;
+}
+.table-header .input.dropdown {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  font-weight: 500;
+}
+
+.table-header label {
+  padding-right: 10px;
+}
+select#Show {
+  height: 25px;
+}
+
+
+/**************************** TableFooter *****/
+.footerTable {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footerTable button.btn {
+  padding: 3px;
+  background-color: #21621E;
+  color: whitesmoke;
+  font-size: 15px;
+  /* border-radius: 10px; */
+  font-weight: 600;
+  border: #21621E solid 1px;
+  cursor: pointer;
+}
+.footerTable button.btn:hover{
+  background-color: rgba(54, 146, 49, 0.986);
+}
+
+.footerTable-pagination {
+  display: flex;
+  height: 30px;
+  align-items: center;
+}
+.footerTable-pagination p{
+  padding: 2px 4px;
+  background-color: #21621E;
+  color: whitesmoke;
+  font-weight: 500;
+  border: white 1px solid;
+}
+.footerTable-show{
+  font-weight: 500;
 }

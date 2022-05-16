@@ -6,8 +6,10 @@ import TableFooter from "../TableFooter/TableFooter";
 
 export default function Table() {
   const dataEmployee = useSelector((state) => state.UserState);
+  const indexStart = useSelector((state) => state.TableState.indexStart);
+  const indexEnd = useSelector((state) => state.TableState.indexEnd);
 
-  const [data, setData] = useState(dataEmployee); 
+  const [data, setData] = useState(dataEmployee);
 
   //methode de state pour rajouter une fleche de direction haut : bas selon l'etat du tableau ( croissant decroissant )
   const [dataSorted, setDataSorted] = useState(false);
@@ -34,6 +36,8 @@ export default function Table() {
     }
   };
 
+  //methode de
+
   return (
     <div className="employee_table">
       <TableHeader setData={setData} dataEmployee={dataEmployee} />
@@ -42,10 +46,14 @@ export default function Table() {
         <thead>
           <tr>
             <th onClick={() => sorting("firstName")}>
-              FirstName <span> {dataSorted === true ? "▲" : "▼"}</span>
+              <span> {dataSorted === true ? "▲" : "▼"}</span> FirstName
             </th>
-            <th onClick={() => sorting("lastName")}>LastName <span> {dataSorted === true ? "▲" : "▼"}</span> </th>
-            <th onClick={() => sorting("startDate")}>Start <span> {dataSorted === true ? "▲" : "▼"}</span> </th>
+            <th onClick={() => sorting("lastName")}>
+              LastName 
+            </th>
+            <th onClick={() => sorting("startDate")}>
+              Start <span> {dataSorted === true ? "▲" : "▼"} </span>{" "}
+            </th>
             <th onClick={() => sorting("department")}>Department</th>
             <th onClick={() => sorting("birthDay")}>Date of Birth</th>
             <th onClick={() => sorting("street")}>Street</th>
@@ -54,20 +62,29 @@ export default function Table() {
             <th onClick={() => sorting("zip")}>Zip Code</th>
           </tr>
         </thead>
+
         <tbody>
-          {data.map((contact) => (
-            <tr key={contact.id}>
-              <td>{contact.firstName}</td>
-              <td>{contact.lastName}</td>
-              <td>{contact.startDate}</td>
-              <td>{contact.department}</td>
-              <td>{contact.birthDay}</td>
-              <td>{contact.street}</td>
-              <td>{contact.city}</td>
-              <td>{contact.state}</td>
-              <td>{contact.zip}</td>
+          {data.length === 0 ? (
+            <tr>
+              <td className="center" colSpan="9">
+                No data available in table
+              </td>
             </tr>
-          ))}
+          ) : (
+            data.slice(indexStart, indexEnd).map((contact) => (
+              <tr key={contact.id}>
+                <td>{contact.firstName}</td>
+                <td>{contact.lastName}</td>
+                <td>{contact.startDate}</td>
+                <td>{contact.department}</td>
+                <td>{contact.birthDay}</td>
+                <td>{contact.street}</td>
+                <td>{contact.city}</td>
+                <td>{contact.state}</td>
+                <td>{contact.zip}</td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
 
@@ -76,3 +93,7 @@ export default function Table() {
   );
 }
 
+/* 
+
+
+*/
