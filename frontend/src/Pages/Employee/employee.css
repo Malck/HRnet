@@ -9,8 +9,8 @@
     border: 2px solid #21621E;
 }
 
-.employee h1 {
-    padding: 5px 20px;
+.employee-container h1 {
+    padding: 5px 220px;
     background-color: #21621E;
     margin: 0 0 20px;
     color: #fff;
@@ -30,3 +30,11 @@
    cursor: pointer;
    background-color:#93ad18
 }
+/* en dessous de 600px 
+
+.employee-container h1 {
+    padding: 0; 
+    width: 100%;
+}
+
+*/

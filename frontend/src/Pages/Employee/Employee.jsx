@@ -10,7 +10,7 @@ export default function Employee() {
 
       <h1 className="sr-only">Current Employees</h1>
 
-      <Table/>
+      <Table />
 
       <Link to="/" className="back-home">
         <h3 className="sr-only">Back Home</h3>
