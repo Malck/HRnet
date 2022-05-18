@@ -2,11 +2,9 @@ import {useDispatch} from "react-redux"
 import { useSelector } from "react-redux";
 import {next,previous} from "../../Store/TableSlice"
 
-function TableFooter() {
+function TableFooter({totalEmployees}) {
 
-  const totalEmployees = useSelector((state) => state.UserState.length);
   const tableLength = useSelector((state) => state.TableState.length);
-  console.log(totalEmployees)
 
   const indexStart = useSelector((state) => state.TableState.indexStart);
   const indexEnd = useSelector((state) => state.TableState.indexEnd);
@@ -22,7 +20,7 @@ function TableFooter() {
     <div className="footerTable">
 
       <div className="footerTable-show">
-        Showing <span>{totalEmployees}</span> to <span>{to}</span> of {" "} <span>{totalEmployees}</span> entries
+        Showing <span>{employeeShow}</span> to <span>{to}</span> of {" "} <span>{totalEmployees}</span> entries
       </div>
 
       <div className="footerTable-pagination">

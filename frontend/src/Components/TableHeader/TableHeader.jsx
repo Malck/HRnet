@@ -31,6 +31,7 @@ function TableHeader({ setData, dataEmployee }) {
 
     });
     setData(dataFiltered);
+
   };
 
   return (
@@ -46,7 +47,7 @@ function TableHeader({ setData, dataEmployee }) {
         placeholder="Search..."
         className="form-control"
         onChange={(e) => {
-          search(e.target.value);
+          search(e.target.value); 
         }}
       ></input>
       

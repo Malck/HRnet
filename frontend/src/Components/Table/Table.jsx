@@ -52,7 +52,7 @@ export default function Table() {
               LastName 
             </th>
             <th onClick={() => sorting("startDate")}>
-              Start <span> {dataSorted === true ? "▲" : "▼"} </span>{" "}
+              Start 
             </th>
             <th onClick={() => sorting("department")}>Department</th>
             <th onClick={() => sorting("birthDay")}>Date of Birth</th>
@@ -88,7 +88,7 @@ export default function Table() {
         </tbody>
       </table>
 
-      <TableFooter />
+      <TableFooter totalEmployees={data.length}/>
     </div>
   );
 }
