@@ -1,5 +1,5 @@
 import "../Header/header.css";
-import HeaderHR  from "../../Assets/logoHRNet.jpeg";
+import HeaderHR  from "./../../Assets/logoHRNet.jpeg";
 import { Link } from "react-router-dom";
 
 export default function Header() {
