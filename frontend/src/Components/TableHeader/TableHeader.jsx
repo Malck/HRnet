@@ -47,7 +47,7 @@ function TableHeader({ setData, dataEmployee }) {
         placeholder="Search..."
         className="form-control"
         onChange={(e) => {
-          search(e.target.value); 
+          search(e.target.value); //rajouter un dispatch(state.indexStart = 0; state.currentPage = 1; ) ? pour quand on utilise la recherche le tableau va a la page 1 
         }}
       ></input>
       
