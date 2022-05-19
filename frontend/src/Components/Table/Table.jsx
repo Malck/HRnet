@@ -36,8 +36,6 @@ export default function Table() {
     }
   };
 
-  //methode de
-
   return (
     <div className="employee_table">
       <TableHeader setData={setData} dataEmployee={dataEmployee} />
@@ -48,12 +46,8 @@ export default function Table() {
             <th onClick={() => sorting("firstName")}>
               <span> {dataSorted === true ? "▲" : "▼"}</span> FirstName
             </th>
-            <th onClick={() => sorting("lastName")}>
-              LastName 
-            </th>
-            <th onClick={() => sorting("startDate")}>
-              Start 
-            </th>
+            <th onClick={() => sorting("lastName")}>LastName </th>
+            <th onClick={() => sorting("startDate")}>Start </th>
             <th onClick={() => sorting("department")}>Department</th>
             <th onClick={() => sorting("birthDay")}>Date of Birth</th>
             <th onClick={() => sorting("street")}>Street</th>
