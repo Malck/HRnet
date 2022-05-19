@@ -30,11 +30,10 @@
    cursor: pointer;
    background-color:#93ad18
 }
-/* en dessous de 600px 
 
+@media only screen and (max-width: 600px) {
 .employee-container h1 {
     padding: 0; 
     width: 100%;
 }
-
-*/
+}

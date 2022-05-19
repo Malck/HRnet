@@ -31,3 +31,17 @@
     cursor : pointer;
     background-color: #93ad18
 }
+
+
+
+
+@media only screen and (max-width: 550px) {
+    .main-nav {
+        display: block;
+        margin: 0;
+    }
+    .main-nav img {
+        width: 150px;
+        padding-bottom: 25px;
+    }
+}
