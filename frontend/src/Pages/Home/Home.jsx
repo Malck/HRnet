@@ -28,5 +28,3 @@ export default function Home() {
   );
 }
 
-// <button onClick={saveEmployee}>Save</button>
-//<a href="employee-list.html">View Current Employees</a>
