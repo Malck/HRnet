@@ -2,8 +2,8 @@ import "../Form/form.css";
 import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import Dropdown from "../Dropdown/Dropdown";
-//import Modal from "../Modal/Modal";
-import { Modal } from "malck-modal-npm";
+import Modal from "../Modal/Modal";
+//import { Modal } from "malck-modal-npm";
 
 import states from "../../Assets/states.json";
 import departments from "../../Assets/departments.json";
