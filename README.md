@@ -6,16 +6,16 @@ Projet 14 : Site HRnet
 - React
 
 - Redux
- ```$ npm install redux```
- ```$ npm install react-redux```
+ ```npm install redux```
+ ```npm install react-redux```
  
 - Redux/Toolkit
- ```$ npm install @reduxjs/toolkit```
+ ```npm install @reduxjs/toolkit```
  
 - Node : v16.13.2
 
 - React-router-dom :
- ```$ npm install react-router-dom```
+ ```npm install react-router-dom```
 
 Recommended Text Editor : Visual Studio Code
 
