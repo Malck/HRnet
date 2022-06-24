@@ -1,5 +1,6 @@
-# MalcolmCoutteel_14_01052022
-Projet 14 : Site HRnet
+## Openclassrooms Project 14
+
+Faites passer une librairie jQuery vers React
 
 ## Dependencies:
 
